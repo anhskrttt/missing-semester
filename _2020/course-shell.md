@@ -290,6 +290,8 @@ missing:~$ curl --head --silent google.com | grep --ignore-case content-length |
 219
 ```
 
+The first command lists the contents of the root directory (`ls -l /`), and then pipes that output to the `tail` program, which prints the last line of its input (`tail -n1`). The second command fetches the headers of the Google homepage (`curl --head --silent google.com`), and then pipes that output to `grep`, which searches for the line containing the string "content-length" (`grep --ignore-case content-length`). Finally, that output is piped to `cut`, which splits its input by spaces (`--delimiter=' '`) and prints the second field (`-f2`), which is the value of the `Content-Length` header (`219`).
+
 We will go into a lot more detail about how to take advantage of pipes
 in the lecture on data wrangling.
 
